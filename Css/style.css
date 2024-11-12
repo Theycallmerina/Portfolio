@@ -56,11 +56,28 @@ ul
     z-index: 0;
     overflow-y: auto;
     overflow-x: hidden;
+    transition: all 0.3s ease;
+}
+.section.back-section
+{
+    z-index: 1;
 }
 .section.active
 {
     z-index: 2;
     opacity: 1;
+    animation: slideSection 1s ease;
+}
+@keyframes slideSection
+{
+    0%
+    {
+        transform: translateX(100%);
+    }
+    100%
+    {
+        transform: translateX(0%);
+    }
 }
 .hidden
 {
@@ -161,6 +178,7 @@ ul
     justify-content: center;
     align-items: center;
     z-index: 10;
+    transition: all 0.3s ease;
 }
 .aside .logo
 {
@@ -230,6 +248,7 @@ ul
     display: none;
     align-items: center;
     justify-content: center;
+    transition: all 0.3s ease;
 }
 .aside .nav-toggler span
 {
@@ -238,6 +257,10 @@ ul
     background: var(--skin--color);
     display: inline-block;
     position: relative;
+}
+.aside .nav-toggler.open span
+{
+    background-color: transparent;
 }
 .aside .nav-toggler span::before
 {
@@ -249,6 +272,11 @@ ul
     top: -6px;
     left: 0;
 }
+.aside .nav-toggler.open span::before
+{
+    transform: rotate(45deg);
+    top: 0;
+}
 .aside .nav-toggler span::after
 {
     content: '';
@@ -258,6 +286,11 @@ ul
     position: absolute;
     top: 6px;
     left: 0;
+}
+.aside .nav-toggler.open span::after
+{
+    transform: rotate(-45deg);
+    top: 0;
 }
 .aside .nav
 {
@@ -282,8 +315,9 @@ ul
 {
     transform: scale(1.15);
     transition: 0.5s ease;
-    box-shadow: 0 0 30px blueviolet;
+    box-shadow: 0 0 30px aqua;
 }
+
 .aside .nav li a.active
 {
     color: var(--skin--color);
@@ -606,7 +640,7 @@ h3.my-job
     text-align: center;
     transition: all 0.3s ease;
 }
-.service .service-item .service-item-inner .icon .fa
+.service .service-item .service-item-inner .icon .fa-brands
 {
     font-size: 40px;
     line-height: 60px;
@@ -617,7 +651,7 @@ h3.my-job
 {
     background: var(--skin--color);
 }
-.service .service-item .service-item-inner:hover .icon .fa
+.service .service-item .service-item-inner:hover .icon .fa-brands
 {
     font-size: 25px;
     color: #ffffff;
@@ -767,13 +801,34 @@ h3.my-job
 }
 @media (max-width:1199px)
 {
+    .section .container
+    {
+        padding-top: 70px;
+    }
     .aside
     {
         left: -270px;
     }
-    .main-content
+    .aside.open
     {
-        padding-left: 0;
+        left: 0;
+    }
+    .aside .nav-toggler
+    {
+        display: flex;
+        left: 30px;
+    }
+    .aside .nav-toggler.open
+    {
+        left: 300px;
+    }
+    .section
+    {
+        left: 0;
+    }
+    .section.open
+    {
+        left: 270px;
     }
     .about .about-content .personal-info .info-item p span
     {
