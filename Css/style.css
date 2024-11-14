@@ -199,12 +199,12 @@ ul
 }
 .aside .logo a:hover
 {
-    color: aqua;
+    color: rgb(140, 0, 255);
 }
 .aside .logo:hover
 {
     transform: scale(1.3);
-    text-shadow: 0 0 25px blueviolet;
+    text-shadow: 0 0 25px aqua;
     transition:  0.5s ease;
 }
 .aside .logo a span
