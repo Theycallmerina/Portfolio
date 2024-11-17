@@ -625,6 +625,7 @@ h3.my-job
     padding: 30px 15px;
     text-align: center;
     transition: all 0.35 ease;
+    width: 300px;
 }
 .service .service-item .service-item-inner:hover
 {
